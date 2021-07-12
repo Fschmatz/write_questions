@@ -71,7 +71,7 @@ class _HomeState extends State<Home> {
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) => NewQuestion(),
                     fullscreenDialog: true,
-                  ));
+                  )).then((value) => getAll());
             },
             child: Icon(
               Icons.add,

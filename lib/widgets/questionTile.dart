@@ -193,9 +193,25 @@ class _QuestionTileState extends State<QuestionTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(
-        widget.question.text,
-        style: TextStyle(fontSize: 16),
+      title: Row(
+        children: [
+          Visibility(
+              visible: widget.question.state == 0,
+              child: Icon(
+                Icons.help_outline_outlined,
+                size: 30,
+                color: Theme.of(context).accentTextTheme.headline1!.color,
+              )),
+          Visibility(
+              visible: widget.question.state == 0,
+              child: const SizedBox(width: 20,)),
+          Flexible(
+            child: Text(
+              widget.question.text,
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+        ],
       ),
       trailing: Visibility(
           visible: widget.question.state == 1,
