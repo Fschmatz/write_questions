@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:write_questions/classes/question.dart';
 import 'package:write_questions/configs/settingsPage.dart';
 import 'package:write_questions/db/questionDao.dart';
+import 'package:write_questions/pages/newQuestion.dart';
 import 'package:write_questions/widgets/questionTile.dart';
 
 class Home extends StatefulWidget {
@@ -50,6 +51,7 @@ class _HomeState extends State<Home> {
             itemBuilder: (context, index) {
               return QuestionTile(
                   key: UniqueKey(),
+                  refresh: getAll,
                   question: Question(
                       questionsList[index]['id'],
                       questionsList[index]['text'],
@@ -63,7 +65,14 @@ class _HomeState extends State<Home> {
         child: FittedBox(
           child: FloatingActionButton(
             elevation: 0.0,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => NewQuestion(),
+                    fullscreenDialog: true,
+                  ));
+            },
             child: Icon(
               Icons.add,
               color: Colors.white,
@@ -85,7 +94,7 @@ class _HomeState extends State<Home> {
                       .textTheme
                       .headline6!
                       .color!
-                      .withOpacity(0.7),
+                      .withOpacity(0.8),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -93,7 +102,7 @@ class _HomeState extends State<Home> {
                       MaterialPageRoute<void>(
                         builder: (BuildContext context) => SettingsPage(),
                         fullscreenDialog: true,
-                      ));
+                      )).then((value) => getAll());
                 }),
           ],
         ),

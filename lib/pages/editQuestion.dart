@@ -80,7 +80,7 @@ class _EditQuestionState extends State<EditQuestion> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("New Question"),
+          title: Text("Edit Question"),
           elevation: 0,
           actions: [
             Padding(

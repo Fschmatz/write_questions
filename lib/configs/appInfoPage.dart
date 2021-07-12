@@ -5,7 +5,7 @@ import 'package:write_questions/util/changelog.dart';
 class AppInfoPage extends StatelessWidget {
 
   _launchGithub()  {
-    const url = '';
+    const url = 'https://github.com/Fschmatz/write_questions';
     launch(url);
   }
 
@@ -92,7 +92,7 @@ class AppInfoPage extends StatelessWidget {
                     color: themeColorApp)),
           ),
           ListTile(
-            //onTap: () {_launchGithub();},
+            onTap: () {_launchGithub();},
             leading: Icon(Icons.open_in_new_outlined),
             title: Text("View on GitHub",
                 style: TextStyle(
@@ -113,7 +113,7 @@ class AppInfoPage extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.messenger_outline),
             title: Text(
-              '?',
+              'It is not knowledge which should come to you, it is you who should come to the knowledge.',
               style: TextStyle(fontSize: 16),
             ),
           ),

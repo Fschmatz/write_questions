@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 ThemeData light = ThemeData(
     brightness: Brightness.light,
     primaryColor: Color(0xFFFFFFFF),
-    accentColor: Colors.lightBlue[800],
+    accentColor: Colors.teal,
     scaffoldBackgroundColor: Color(0xFFFFFFFF),
     cardTheme: CardTheme(
       color: Color(0xFFF1F1F1),
@@ -20,8 +20,28 @@ ThemeData light = ThemeData(
       showUnselectedLabels: false,
       backgroundColor: Color(0xFFE5E5E5),
     ),
+  inputDecorationTheme: InputDecorationTheme(
+      contentPadding: EdgeInsets.symmetric(
+          vertical: 15.0, horizontal: 10.0),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Colors.teal,
+        ),
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.grey,
+          ),
+          borderRadius: BorderRadius.circular(15.0)),
+      border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.grey,
+          ),
+          borderRadius: BorderRadius.circular(15.0))
+  ),
     accentTextTheme: TextTheme(
-      headline1: TextStyle(color: Colors.lightBlue[700]),
+      headline1: TextStyle(color: Colors.teal),
       headline2: TextStyle(color: Color(0xFFF1F1F1)),
     ),
     bottomAppBarColor: Color(0xFFE6E6E6),
@@ -46,9 +66,29 @@ ThemeData dark = ThemeData(
       showUnselectedLabels: false,
       backgroundColor: Color(0xFF151515),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+        contentPadding: EdgeInsets.symmetric(
+            vertical: 15.0, horizontal: 10.0),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xFF479C84),
+          ),
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.grey,
+            ),
+            borderRadius: BorderRadius.circular(15.0)),
+        border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.grey,
+            ),
+            borderRadius: BorderRadius.circular(15.0))
+    ),
     bottomAppBarColor: Color(0xFF151515),
     accentTextTheme: TextTheme(
-      headline1: TextStyle(color: Color(0xFF8ebff5)),
+      headline1: TextStyle(color: Color(0xFF88dbc4)),
       headline2: TextStyle(color: Color(0xFF000000)),
     )
     );
