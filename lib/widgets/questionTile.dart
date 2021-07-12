@@ -103,7 +103,7 @@ class _QuestionTileState extends State<QuestionTile> {
     final deleted = await dbQuestion.delete(widget.question.id);
   }
 
-  void bottomMenuShowItem() {
+  void openBottomMenu() {
     showModalBottomSheet(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -169,7 +169,7 @@ class _QuestionTileState extends State<QuestionTile> {
                             ),
                           ),
                           const SizedBox(
-                            height: 15,
+                            height: 20,
                           ),
                           ListTile(
                             title: Text(
@@ -216,12 +216,12 @@ class _QuestionTileState extends State<QuestionTile> {
       trailing: Visibility(
           visible: widget.question.state == 1,
           child: Icon(
-            Icons.check,
+            Icons.check_circle_outline_outlined,
             size: 30,
             color: Theme.of(context).accentTextTheme.headline1!.color,
           )),
       onTap: () {
-        bottomMenuShowItem();
+        openBottomMenu();
       },
     );
   }

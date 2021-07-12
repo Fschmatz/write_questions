@@ -20,6 +20,9 @@ ThemeData light = ThemeData(
       showUnselectedLabels: false,
       backgroundColor: Color(0xFFE5E5E5),
     ),
+  bottomSheetTheme: BottomSheetThemeData(
+    backgroundColor:  Color(0xFFFFFFFF),
+  ),
   inputDecorationTheme: InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(
           vertical: 15.0, horizontal: 10.0),
@@ -58,6 +61,9 @@ ThemeData dark = ThemeData(
     ),
     dialogTheme: DialogTheme(
       backgroundColor: Color(0xFF303032),
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor:  Color(0xFF202022),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(color: Color(0xFFA590D5)),
