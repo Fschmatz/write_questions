@@ -25,38 +25,6 @@ class _QuestionTileState extends State<QuestionTile> {
     final update = await dbQuestion.update(row);
   }
 
-  Widget buttonChangeState() {
-    String textButton =
-        widget.question.state == 0 ? 'Answered' : 'Not Answered';
-
-    return Center(
-      child: Card(
-        color: Theme.of(context).accentColor,
-        margin: const EdgeInsets.fromLTRB(140, 0, 140, 0),
-        elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(25)),
-        ),
-        child: ListTile(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(25)),
-          ),
-          title: Text(
-            textButton,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
-          ),
-          onTap: () {
-            changeState();
-            widget.refresh();
-            Navigator.of(context).pop();
-          },
-        ),
-      ),
-    );
-  }
-
-
   showAlertDialogOkDelete(BuildContext context) {
     Widget okButton = TextButton(
       child: Text(
@@ -113,76 +81,62 @@ class _QuestionTileState extends State<QuestionTile> {
         isScrollControlled: true,
         context: context,
         builder: (BuildContext bc) {
-          return Padding(
-            padding: const EdgeInsets.fromLTRB(0, 5, 0, 30),
-            child: Container(
+          return Container(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
               child: Wrap(
                 children: <Widget>[
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Column(children: <Widget>[
-                          ListTile(
-                            contentPadding: const EdgeInsets.fromLTRB(16, 5, 5, 0),
-                            title: Text("Question".toUpperCase(),
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700,
-                                    color: Theme.of(context)
-                                        .accentTextTheme
-                                        .headline1!
-                                        .color)),
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                IconButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute<void>(
-                                          builder: (BuildContext context) =>
-                                              EditQuestion(
-                                            question: widget.question,
-                                          ),
-                                          fullscreenDialog: true,
-                                        )).then((value) => widget.refresh());
-                                  },
-                                  splashRadius: 26,
-                                  icon: Icon(Icons.edit_outlined, size: 22),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                IconButton(
-                                  icon: Icon(
-                                    Icons.delete_outline_outlined,
-                                    size: 22
-                                  ),
-                                  splashRadius: 26,
-                                  onPressed: () {
-                                    showAlertDialogOkDelete(context);
-                                  },
-                                ),
-                              ],
+                  ListTile(
+                    leading: widget.question.state == 0
+                        ? Icon(Icons.check_circle_outline_outlined,
+                            color: Theme.of(context).hintColor,size: 25,)
+                        : Icon(Icons.help_outline_outlined,
+                            color: Theme.of(context).hintColor,size: 25,),
+                    title: Text(
+                      widget.question.state == 1
+                          ? 'Mark question as not answered'
+                          : 'Mark question as answered',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    onTap: () {
+                      changeState();
+                      widget.refresh();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  const Divider(),
+                  ListTile(
+                    leading: Icon(Icons.edit_outlined,
+                        color: Theme.of(context).hintColor),
+                    title: Text(
+                      "Edit question",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).pop();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) => EditQuestion(
+                              question: widget.question,
                             ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          ListTile(
-                            title: Text(
-                              widget.question.text,
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          buttonChangeState()
-                        ])
-                      ]),
+                            fullscreenDialog: true,
+                          )).then((value) => widget.refresh());
+                    },
+                  ),
+                  const Divider(),
+                  ListTile(
+                    leading: Icon(Icons.delete_outline_outlined,
+                        color: Theme.of(context).hintColor),
+                    //trailing: Icon(Icons.keyboard_arrow_right),
+                    title: Text(
+                      "Delete question",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    onTap: () {
+                      showAlertDialogOkDelete(context);
+                    },
+                  ),
                 ],
               ),
             ),
@@ -193,33 +147,19 @@ class _QuestionTileState extends State<QuestionTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Row(
-        children: [
-          Visibility(
-              visible: widget.question.state == 0,
-              child: Icon(
-                Icons.help_outline_outlined,
-                size: 30,
-                color: Theme.of(context).accentTextTheme.headline1!.color,
-              )),
-          Visibility(
-              visible: widget.question.state == 0,
-              child: const SizedBox(width: 20,)),
-          Flexible(
-            child: Text(
-              widget.question.text,
-              style: TextStyle(fontSize: 16),
-            ),
-          ),
-        ],
+      leading: Icon(
+        widget.question.state == 1
+            ? Icons.check_circle_outline_outlined
+            : Icons.help_outline_outlined,
+        color: widget.question.state == 1
+            ? Theme.of(context).accentColor
+            : Theme.of(context).accentTextTheme.headline1!.color,
+        size: 26,
       ),
-      trailing: Visibility(
-          visible: widget.question.state == 1,
-          child: Icon(
-            Icons.check_circle_outline_outlined,
-            size: 30,
-            color: Theme.of(context).accentTextTheme.headline1!.color,
-          )),
+      title: Text(
+        widget.question.text,
+        style: TextStyle(fontSize: 16),
+      ),
       onTap: () {
         openBottomMenu();
       },

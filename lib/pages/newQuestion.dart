@@ -98,35 +98,37 @@ class _NewQuestionState extends State<NewQuestion> {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-            padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextField(
-                    autofocus: true,
-                    minLines: 1,
-                    maxLines: 12,
-                    maxLength: 1000,
-                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                    controller: customControllerText,
-                    decoration: InputDecoration(
-                      focusColor: Theme.of(context).accentColor,
-                        prefixIcon: Icon(Icons.text_snippet_outlined, size: 20,color: Theme.of(context)
-                            .textTheme
-                            .headline6!
-                            .color!
-                            ,),
-                        hintText: "Question",
-                        helperText: "* Required",
-                    ),
+        body: ListView(
+            children: [
+              ListTile(
+                leading: SizedBox(
+                  height: 0.1,
+                ),
+                title: Text("Question".toUpperCase(),
                     style: TextStyle(
-                      fontSize: 17,
-                    ),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
+                        color: Theme.of(context).accentTextTheme.headline1!.color)),
+              ),
+              ListTile(
+                leading: Icon(Icons.notes_outlined),
+                title: TextField(
+                  autofocus: true,
+                  minLines: 1,
+                  maxLines: 5,
+                  maxLength: 1000,
+                  maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                  controller: customControllerText,
+                  decoration: InputDecoration(
+                    focusColor: Theme.of(context).accentColor,
+                    helperText: "* Required",
                   ),
-                ]
-            )
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ]
         )
     );
 
