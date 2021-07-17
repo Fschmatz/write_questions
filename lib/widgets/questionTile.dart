@@ -89,10 +89,16 @@ class _QuestionTileState extends State<QuestionTile> {
                 children: <Widget>[
                   ListTile(
                     leading: widget.question.state == 0
-                        ? Icon(Icons.check_circle_outline_outlined,
-                            color: Theme.of(context).hintColor,size: 25,)
-                        : Icon(Icons.help_outline_outlined,
-                            color: Theme.of(context).hintColor,size: 25,),
+                        ? Icon(
+                            Icons.check_circle_outline_outlined,
+                            color: Theme.of(context).hintColor,
+                            size: 25,
+                          )
+                        : Icon(
+                            Icons.help_outline_outlined,
+                            color: Theme.of(context).hintColor,
+                            size: 25,
+                          ),
                     title: Text(
                       widget.question.state == 1
                           ? 'Mark question as not answered'
@@ -148,11 +154,13 @@ class _QuestionTileState extends State<QuestionTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      //leading: SizedBox.shrink(),
-
       title: Text(
         widget.question.text,
-        style: TextStyle(fontSize: 16),
+        style: TextStyle(
+            fontSize: 16,
+            color: widget.question.state == 1
+                ? Theme.of(context).textTheme.headline6!.color!.withOpacity(0.8)
+                : Theme.of(context).textTheme.headline6!.color),
       ),
       onTap: () {
         openBottomMenu();

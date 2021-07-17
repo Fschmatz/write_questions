@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
       ),
       body: ListView(physics: AlwaysScrollableScrollPhysics(), children: [
         ListTile(
-          leading: Icon(
+          trailing: Icon(
             Icons.help_outline_outlined,
             color: Theme.of(context).accentTextTheme.headline1!.color,
             size: 25,
@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
             }),
         const Divider(),
         ListTile(
-          leading: Icon(
+          trailing: Icon(
             Icons.check_circle_outline_outlined,
             color: Theme.of(context).accentColor,
             size: 25,
