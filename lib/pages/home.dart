@@ -43,19 +43,64 @@ class _HomeState extends State<Home> {
         ),
       ),
       body: ListView(physics: AlwaysScrollableScrollPhysics(), children: [
-        ListView.separated(
+        ListTile(
+          leading: Icon(
+            Icons.help_outline_outlined,
+            color: Theme.of(context).accentTextTheme.headline1!.color,
+            size: 25,
+          ),
+          title: Text("Not Answered".toUpperCase(),
+              style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w700,
+                  color: Theme.of(context).accentTextTheme.headline1!.color)),
+        ),
+        ListView.builder(
             physics: NeverScrollableScrollPhysics(),
-            separatorBuilder: (context, index) => const Divider(),
             shrinkWrap: true,
             itemCount: questionsList.length,
             itemBuilder: (context, index) {
-              return QuestionTile(
-                  key: UniqueKey(),
-                  refresh: getAll,
-                  question: Question(
-                      questionsList[index]['id'],
-                      questionsList[index]['text'],
-                      questionsList[index]['state']));
+              if (questionsList[index]['state'] == 0) {
+                return QuestionTile(
+                    key: UniqueKey(),
+                    refresh: getAll,
+                    question: Question(
+                        questionsList[index]['id'],
+                        questionsList[index]['text'],
+                        questionsList[index]['state']));
+              } else {
+                return SizedBox.shrink();
+              }
+            }),
+        const Divider(),
+        ListTile(
+          leading: Icon(
+            Icons.check_circle_outline_outlined,
+            color: Theme.of(context).accentColor,
+            size: 25,
+          ),
+          title: Text("Answered".toUpperCase(),
+              style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w700,
+                  color: Theme.of(context).accentColor)),
+        ),
+        ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: questionsList.length,
+            itemBuilder: (context, index) {
+              if (questionsList[index]['state'] == 1) {
+                return QuestionTile(
+                    key: UniqueKey(),
+                    refresh: getAll,
+                    question: Question(
+                        questionsList[index]['id'],
+                        questionsList[index]['text'],
+                        questionsList[index]['state']));
+              } else {
+                return SizedBox.shrink();
+              }
             }),
         const SizedBox(
           height: 20,

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:write_questions/classes/question.dart';
 import 'package:write_questions/db/questionDao.dart';
@@ -147,15 +148,8 @@ class _QuestionTileState extends State<QuestionTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(
-        widget.question.state == 1
-            ? Icons.check_circle_outline_outlined
-            : Icons.help_outline_outlined,
-        color: widget.question.state == 1
-            ? Theme.of(context).accentColor
-            : Theme.of(context).accentTextTheme.headline1!.color,
-        size: 26,
-      ),
+      //leading: SizedBox.shrink(),
+
       title: Text(
         widget.question.text,
         style: TextStyle(fontSize: 16),
