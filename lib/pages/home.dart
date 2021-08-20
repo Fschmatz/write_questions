@@ -41,6 +41,23 @@ class _HomeState extends State<Home> {
         title: Text(
           'Write Questions',
         ),
+        actions: [ IconButton(
+            icon: Icon(
+              Icons.settings_outlined,
+              color: Theme.of(context)
+                  .textTheme
+                  .headline6!
+                  .color!
+                  .withOpacity(0.8),
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => SettingsPage(),
+                    fullscreenDialog: true,
+                  )).then((value) => getAll());
+            }),],
       ),
       body: ListView(physics: AlwaysScrollableScrollPhysics(), children: [
         ListTile(
@@ -106,52 +123,23 @@ class _HomeState extends State<Home> {
           height: 20,
         )
       ]),
-      floatingActionButton: Container(
-        child: FittedBox(
-          child: FloatingActionButton(
-            elevation: 0.0,
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => NewQuestion(),
-                    fullscreenDialog: true,
-                  )).then((value) => getAll());
-            },
-            child: Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
-          ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 0.0,
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => NewQuestion(),
+                fullscreenDialog: true,
+              )).then((value) => getAll());
+        },
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-          child: Padding(
-        padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            IconButton(
-                icon: Icon(
-                  Icons.settings_outlined,
-                  color: Theme.of(context)
-                      .textTheme
-                      .headline6!
-                      .color!
-                      .withOpacity(0.8),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) => SettingsPage(),
-                        fullscreenDialog: true,
-                      )).then((value) => getAll());
-                }),
-          ],
-        ),
-      )),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+
     );
   }
 }
