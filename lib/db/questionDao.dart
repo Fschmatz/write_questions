@@ -67,4 +67,13 @@ class QuestionDao {
     return await db.delete(table, where: '$columnId = ?', whereArgs: [id]);
   }
 
+  Future<List<Map<String, dynamic>>> getItemsState(int state) async {
+    Database db = await instance.database;
+    return await db.rawQuery('''    
+        SELECT * FROM $table 
+        WHERE $columnState=$state   
+        ORDER BY id DESC
+        ''');
+  }
+
 }

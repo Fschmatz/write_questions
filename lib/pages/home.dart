@@ -1,10 +1,8 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:write_questions/classes/question.dart';
+
 import 'package:write_questions/configs/settingsPage.dart';
-import 'package:write_questions/db/questionDao.dart';
-import 'package:write_questions/pages/newQuestion.dart';
-import 'package:write_questions/widgets/questionTile.dart';
+import 'package:write_questions/widgets/itemList.dart';
+import 'package:flutter_tab_indicator_styler/flutter_tab_indicator_styler.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -12,134 +10,65 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  bool loading = true;
-  final dbQuestion = QuestionDao.instance;
-  List<Map<String, dynamic>> questionsList = [];
-
-  @override
-  void initState() {
-    getAll();
-    super.initState();
-  }
-
-  Future<void> getAll() async {
-    var resp = await dbQuestion.queryAllRowsDesc();
-    setState(() {
-      questionsList = resp;
-    });
-  }
-
-  void refreshHome() {
-    getAll();
-  }
+  TextStyle tabBarStyle = TextStyle(fontWeight: FontWeight.w600, fontSize: 15);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Write Questions',
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 1,
+          title: Text(
+            'Write Questions',
+          ),
+          actions: [
+            IconButton(
+                icon: Icon(
+                  Icons.settings_outlined,
+                  color: Theme.of(context)
+                      .textTheme
+                      .headline6!
+                      .color!
+                      .withOpacity(0.8),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => SettingsPage(),
+                        fullscreenDialog: true,
+                      ));
+                }),
+          ],
+          bottom: TabBar(
+            indicatorWeight: 0,
+            labelPadding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+            labelStyle: tabBarStyle,
+            tabs: [
+              Tab(text: 'Searching'.toUpperCase()),
+              Tab(text: 'Answered'.toUpperCase()),
+            ],
+            indicator: MaterialIndicator(
+                height: 4,
+                color: Theme.of(context).accentColor,
+                paintingStyle: PaintingStyle.fill,
+                horizontalPadding: 50),
+          ),
         ),
-        actions: [ IconButton(
-            icon: Icon(
-              Icons.settings_outlined,
-              color: Theme.of(context)
-                  .textTheme
-                  .headline6!
-                  .color!
-                  .withOpacity(0.8),
+        body: TabBarView(
+          children: [
+            ItemList(
+              key: UniqueKey(),
+              state: 0,
             ),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => SettingsPage(),
-                    fullscreenDialog: true,
-                  )).then((value) => getAll());
-            }),],
-      ),
-      body: ListView(physics: AlwaysScrollableScrollPhysics(), children: [
-        ListTile(
-          trailing: Icon(
-            Icons.help_outline_outlined,
-            color: Theme.of(context).accentTextTheme.headline1!.color,
-            size: 25,
-          ),
-          title: Text("Not Answered".toUpperCase(),
-              style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: Theme.of(context).accentTextTheme.headline1!.color)),
-        ),
-        ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: questionsList.length,
-            itemBuilder: (context, index) {
-              if (questionsList[index]['state'] == 0) {
-                return QuestionTile(
-                    key: UniqueKey(),
-                    refresh: getAll,
-                    question: Question(
-                        questionsList[index]['id'],
-                        questionsList[index]['text'],
-                        questionsList[index]['state']));
-              } else {
-                return SizedBox.shrink();
-              }
-            }),
-        const Divider(),
-        ListTile(
-          trailing: Icon(
-            Icons.check_circle_outline_outlined,
-            color: Theme.of(context).accentColor,
-            size: 25,
-          ),
-          title: Text("Answered".toUpperCase(),
-              style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: Theme.of(context).accentColor)),
-        ),
-        ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: questionsList.length,
-            itemBuilder: (context, index) {
-              if (questionsList[index]['state'] == 1) {
-                return QuestionTile(
-                    key: UniqueKey(),
-                    refresh: getAll,
-                    question: Question(
-                        questionsList[index]['id'],
-                        questionsList[index]['text'],
-                        questionsList[index]['state']));
-              } else {
-                return SizedBox.shrink();
-              }
-            }),
-        const SizedBox(
-          height: 20,
-        )
-      ]),
-      floatingActionButton: FloatingActionButton(
-        elevation: 0.0,
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => NewQuestion(),
-                fullscreenDialog: true,
-              )).then((value) => getAll());
-        },
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
+            ItemList(
+              key: UniqueKey(),
+              state: 1,
+            ),
+          ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-
     );
   }
 }
