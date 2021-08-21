@@ -15,6 +15,9 @@ class ItemList extends StatefulWidget {
 }
 
 class _ItemListState extends State<ItemList> {
+
+  //CLASS TO BE USED ON FUTURE TABS
+
   bool loading = true;
   final dbQuestion = QuestionDao.instance;
   List<Map<String, dynamic>> questionsList = [];
