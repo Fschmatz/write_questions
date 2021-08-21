@@ -159,7 +159,7 @@ class _QuestionTileState extends State<QuestionTile> {
         style: TextStyle(
             fontSize: 16,
             color: widget.question.state == 1
-                ? Theme.of(context).textTheme.headline6!.color!.withOpacity(0.8)
+                ? Theme.of(context).textTheme.headline6!.color!.withOpacity(0.7)
                 : Theme.of(context).textTheme.headline6!.color),
       ),
       onTap: () {
