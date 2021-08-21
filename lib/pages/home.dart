@@ -1,10 +1,8 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:write_questions/classes/question.dart';
 import 'package:write_questions/configs/settingsPage.dart';
 import 'package:write_questions/db/questionDao.dart';
-import 'package:write_questions/pages/newQuestion.dart';
-import 'package:write_questions/widgets/questionTile.dart';
+import 'package:write_questions/widgets/itemList.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -16,130 +14,82 @@ class _HomeState extends State<Home> {
   final dbQuestion = QuestionDao.instance;
   List<Map<String, dynamic>> questionsList = [];
 
-  @override
-  void initState() {
-    getAll();
-    super.initState();
-  }
-
-  Future<void> getAll() async {
-    var resp = await dbQuestion.queryAllRowsDesc();
-    setState(() {
-      questionsList = resp;
-    });
-  }
-
-  void refreshHome() {
-    getAll();
-  }
+  int _currentIndex = 0;
+  List<Widget> _tabs = [
+    ItemList(
+      key: UniqueKey(),
+      state: 0,
+    ),
+    ItemList(
+      key: UniqueKey(),
+      state: 1,
+    ),
+    SettingsPage()
+  ];
 
   @override
   Widget build(BuildContext context) {
+
+    TextStyle styleFontNavBar =
+    TextStyle(fontSize: 14.5, fontWeight: FontWeight.w600, color: Theme.of(context).accentColor);
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         title: Text(
           'Write Questions',
         ),
-        actions: [ IconButton(
-            icon: Icon(
-              Icons.settings_outlined,
-              color: Theme.of(context)
-                  .textTheme
-                  .headline6!
-                  .color!
-                  .withOpacity(0.8),
-            ),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => SettingsPage(),
-                    fullscreenDialog: true,
-                  )).then((value) => getAll());
-            }),],
       ),
-      body: ListView(physics: AlwaysScrollableScrollPhysics(), children: [
-        ListTile(
-          trailing: Icon(
-            Icons.help_outline_outlined,
-            color: Theme.of(context).accentTextTheme.headline1!.color,
-            size: 25,
-          ),
-          title: Text("Not Answered".toUpperCase(),
-              style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: Theme.of(context).accentTextTheme.headline1!.color)),
-        ),
-        ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: questionsList.length,
-            itemBuilder: (context, index) {
-              if (questionsList[index]['state'] == 0) {
-                return QuestionTile(
-                    key: UniqueKey(),
-                    refresh: getAll,
-                    question: Question(
-                        questionsList[index]['id'],
-                        questionsList[index]['text'],
-                        questionsList[index]['state']));
-              } else {
-                return SizedBox.shrink();
-              }
-            }),
-        const Divider(),
-        ListTile(
-          trailing: Icon(
-            Icons.check_circle_outline_outlined,
-            color: Theme.of(context).accentColor,
-            size: 25,
-          ),
-          title: Text("Answered".toUpperCase(),
-              style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: Theme.of(context).accentColor)),
-        ),
-        ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: questionsList.length,
-            itemBuilder: (context, index) {
-              if (questionsList[index]['state'] == 1) {
-                return QuestionTile(
-                    key: UniqueKey(),
-                    refresh: getAll,
-                    question: Question(
-                        questionsList[index]['id'],
-                        questionsList[index]['text'],
-                        questionsList[index]['state']));
-              } else {
-                return SizedBox.shrink();
-              }
-            }),
-        const SizedBox(
-          height: 100,
-        )
-      ]),
-      floatingActionButton: FloatingActionButton(
-        elevation: 0.0,
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => NewQuestion(),
-                fullscreenDialog: true,
-              )).then((value) => getAll());
-        },
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-      ),
+      body: _tabs[_currentIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
+              hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
+              color:
+              Theme.of(context).textTheme.headline6!.color!.withOpacity(0.7),
+              gap: 8,
+              activeColor: Theme.of(context).accentColor,
+              iconSize: 24,
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              duration: Duration(milliseconds: 500),
+              tabBackgroundColor:
+              Theme.of(context).accentColor.withOpacity(0.3),
+              backgroundColor:
+              Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
+              tabs: [
+                GButton(
+                  icon: Icons.help_outline_outlined,
+                  text: 'Not Answered',
+                  textStyle: styleFontNavBar,
+                ),
+                GButton(
+                  icon: Icons.check_circle_outline_outlined,
+                  text: 'Answered',
+                  textStyle: styleFontNavBar,
+                ),
+                GButton(
+                  icon: Icons.settings_outlined,
+                  text: 'Settings',
+                  textStyle: styleFontNavBar,
+                ),
+              ],
+              selectedIndex: _currentIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              },
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

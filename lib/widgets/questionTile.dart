@@ -158,9 +158,7 @@ class _QuestionTileState extends State<QuestionTile> {
         widget.question.text,
         style: TextStyle(
             fontSize: 16,
-            color: widget.question.state == 1
-                ? Theme.of(context).textTheme.headline6!.color!.withOpacity(0.7)
-                : Theme.of(context).textTheme.headline6!.color),
+            color: Theme.of(context).textTheme.headline6!.color),
       ),
       onTap: () {
         openBottomMenu();
