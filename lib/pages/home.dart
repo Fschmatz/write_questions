@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
         ),
         child: SafeArea(
           child: Padding(

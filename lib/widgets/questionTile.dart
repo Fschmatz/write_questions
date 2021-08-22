@@ -10,9 +10,10 @@ class QuestionTile extends StatefulWidget {
 
   Question question;
   Function() refresh;
+  int index;
 
   QuestionTile(
-      {required Key key, required this.question, required this.refresh})
+      {required Key key, required this.question,required this.index, required this.refresh})
       : super(key: key);
 }
 
@@ -155,7 +156,7 @@ class _QuestionTileState extends State<QuestionTile> {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        widget.question.text,
+        (widget.index + 1).toString()+'. ' + widget.question.text,
         style: TextStyle(
             fontSize: 16,
             color: Theme.of(context).textTheme.headline6!.color),

@@ -49,6 +49,7 @@ class _ItemListState extends State<ItemList> {
               return QuestionTile(
                   key: UniqueKey(),
                   refresh: getAll,
+                  index: index,
                   question: Question(
                       questionsList[index]['id'],
                       questionsList[index]['text'],

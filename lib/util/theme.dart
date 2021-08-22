@@ -3,23 +3,23 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 //CLARO
 ThemeData light = ThemeData(
-    brightness: Brightness.light,
-    primaryColor: Color(0xFFFFFFFF),
-    accentColor: Colors.teal,
-    scaffoldBackgroundColor: Color(0xFFFFFFFF),
-    cardTheme: CardTheme(
-      color: Color(0xFFF1F1F1),
-    ),
-    dialogTheme: DialogTheme(
-      backgroundColor: Color(0xFFF9F9F9),
-    ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedIconTheme: IconThemeData(color: Colors.deepPurple),
-      selectedLabelStyle: TextStyle(color: Colors.deepPurple),
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      backgroundColor: Color(0xFFE5E5E5),
-    ),
+  brightness: Brightness.light,
+  primaryColor: Color(0xFFF8F8F8),
+  accentColor: Colors.teal,
+  scaffoldBackgroundColor: Color(0xFFFFFFFF),
+  cardTheme: CardTheme(
+    color: Color(0xFFF8F8F8),
+  ),
+  dialogTheme: DialogTheme(
+    backgroundColor: Color(0xFFF9F9F9),
+  ),
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    selectedIconTheme: IconThemeData(color: Colors.deepPurple),
+    selectedLabelStyle: TextStyle(color: Colors.deepPurple),
+    showSelectedLabels: false,
+    showUnselectedLabels: false,
+    backgroundColor: Color(0xFFE5E5E5),
+  ),
   bottomSheetTheme: BottomSheetThemeData(
     backgroundColor:  Color(0xFFFFFFFF),
   ),
@@ -43,21 +43,21 @@ ThemeData light = ThemeData(
           ),
           borderRadius: BorderRadius.circular(15.0))
   ),
-    accentTextTheme: TextTheme(
-      headline1: TextStyle(color: Colors.teal),
-      headline2: TextStyle(color: Color(0xFFF1F1F1)),
-    ),
-    bottomAppBarColor: Color(0xFFE6E6E6),
-   );
+  accentTextTheme: TextTheme(
+    headline1: TextStyle(color: Colors.teal),
+    headline2: TextStyle(color: Color(0xFFF1F1F1)),
+  ),
+  bottomAppBarColor: Color(0xFFE6E6E6),
+);
 
 //ESCURO
 ThemeData dark = ThemeData(
     brightness: Brightness.dark,
-    primaryColor: Color(0xFF202022),
+    primaryColor: Color(0xFF1A1A1C),
     accentColor: Color(0xFF479C84),
     scaffoldBackgroundColor: Color(0xFF202022),
     cardTheme: CardTheme(
-      color: Color(0xFF272729),
+      color: Color(0xFF1A1A1C),
     ),
     dialogTheme: DialogTheme(
       backgroundColor: Color(0xFF303032),
@@ -70,7 +70,7 @@ ThemeData dark = ThemeData(
       selectedLabelStyle: TextStyle(color: Color(0xFFA590D5)),
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      backgroundColor: Color(0xFF151515),
+      backgroundColor: Color(0xFF151517),
     ),
     inputDecorationTheme: InputDecorationTheme(
         contentPadding: EdgeInsets.symmetric(
@@ -92,12 +92,12 @@ ThemeData dark = ThemeData(
             ),
             borderRadius: BorderRadius.circular(15.0))
     ),
-    bottomAppBarColor: Color(0xFF151515),
+    bottomAppBarColor: Color(0xFF151517),
     accentTextTheme: TextTheme(
       headline1: TextStyle(color: Color(0xFF88dbc4)),
       headline2: TextStyle(color: Color(0xFF000000)),
     )
-    );
+);
 
 class ThemeNotifier extends ChangeNotifier {
   final String key = 'valorTema';
@@ -118,7 +118,7 @@ class ThemeNotifier extends ChangeNotifier {
   }
 
   _initPrefs() async {
-      prefs = await SharedPreferences.getInstance();
+    prefs = await SharedPreferences.getInstance();
   }
 
   _loadFromPrefs() async {
@@ -132,3 +132,4 @@ class ThemeNotifier extends ChangeNotifier {
     prefs.setBool(key, _darkTheme);
   }
 }
+
