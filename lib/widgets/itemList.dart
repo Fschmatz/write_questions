@@ -15,7 +15,6 @@ class ItemList extends StatefulWidget {
 }
 
 class _ItemListState extends State<ItemList> {
-
   bool loading = true;
   final dbQuestion = QuestionDao.instance;
   List<Map<String, dynamic>> questionsList = [];
@@ -41,7 +40,9 @@ class _ItemListState extends State<ItemList> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(physics: AlwaysScrollableScrollPhysics(), children: [
-        ListView.builder(
+        ListView.separated(
+            separatorBuilder: (BuildContext context, int index) =>
+                const Divider(),
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: questionsList.length,
@@ -53,7 +54,8 @@ class _ItemListState extends State<ItemList> {
                   question: Question(
                       questionsList[index]['id'],
                       questionsList[index]['text'],
-                      questionsList[index]['state']));
+                      questionsList[index]['state'],
+                      questionsList[index]['note']));
             }),
         const SizedBox(
           height: 100,

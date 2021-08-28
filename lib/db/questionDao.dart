@@ -12,6 +12,7 @@ class QuestionDao {
   static final columnId = 'id';
   static final columnText = 'text';
   static final columnState = 'state';
+  static final columnNote = 'note';
 
   static Database? _database;
   Future<Database> get database async =>
@@ -36,7 +37,8 @@ class QuestionDao {
           CREATE TABLE $table (
            $columnId INTEGER PRIMARY KEY,            
            $columnText TEXT NOT NULL,    
-           $columnState INTEGER NOT NULL
+           $columnState INTEGER NOT NULL,
+           $columnNote TEXT
           )
           ''');
   }

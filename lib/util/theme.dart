@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 //CLARO
 ThemeData light = ThemeData(
   brightness: Brightness.light,
-  primaryColor: Color(0xFFF8F8F8),
+  primaryColor: Color(0xFFFFFFFF),
   accentColor: Colors.teal,
   scaffoldBackgroundColor: Color(0xFFFFFFFF),
   cardTheme: CardTheme(
@@ -47,14 +47,14 @@ ThemeData light = ThemeData(
     headline1: TextStyle(color: Colors.teal),
     headline2: TextStyle(color: Color(0xFFF1F1F1)),
   ),
-  bottomAppBarColor: Color(0xFFE6E6E6),
+  bottomAppBarColor: Color(0xFFE4E4E4),
 );
 
 //ESCURO
 ThemeData dark = ThemeData(
     brightness: Brightness.dark,
-    primaryColor: Color(0xFF1A1A1C),
-    accentColor: Color(0xFF479C84),
+    primaryColor: Color(0xFF202022),
+    accentColor: Color(0xFF62A996),
     scaffoldBackgroundColor: Color(0xFF202022),
     cardTheme: CardTheme(
       color: Color(0xFF1A1A1C),
@@ -94,7 +94,7 @@ ThemeData dark = ThemeData(
     ),
     bottomAppBarColor: Color(0xFF151517),
     accentTextTheme: TextTheme(
-      headline1: TextStyle(color: Color(0xFF88dbc4)),
+      headline1: TextStyle(color: Color(0xFF9DECD6)),//0xFF88dbc4
       headline2: TextStyle(color: Color(0xFF000000)),
     )
 );

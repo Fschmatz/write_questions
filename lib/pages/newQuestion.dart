@@ -13,6 +13,7 @@ class _NewQuestionState extends State<NewQuestion> {
 
   final dbQuestion = QuestionDao.instance;
   TextEditingController customControllerText = TextEditingController();
+  TextEditingController customControllerNote = TextEditingController();
 
 
   @override
@@ -25,6 +26,7 @@ class _NewQuestionState extends State<NewQuestion> {
     Map<String, dynamic> row = {
       QuestionDao.columnText: customControllerText.text,
       QuestionDao.columnState : 0,
+      QuestionDao.columnNote: customControllerNote.text,
     };
     final id = await dbQuestion.insert(row);
     print('id = $id');
@@ -116,12 +118,39 @@ class _NewQuestionState extends State<NewQuestion> {
                   autofocus: true,
                   minLines: 1,
                   maxLines: 5,
-                  maxLength: 1000,
+                  maxLength: 200,
                   maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   controller: customControllerText,
                   decoration: InputDecoration(
                     focusColor: Theme.of(context).accentColor,
                     helperText: "* Required",
+                  ),
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: SizedBox(
+                  height: 0.1,
+                ),
+                title: Text("Note".toUpperCase(),
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
+                        color: Theme.of(context).accentTextTheme.headline1!.color)),
+              ),
+              ListTile(
+                leading: Icon(Icons.article_outlined),
+                title: TextField(
+                  autofocus: true,
+                  minLines: 1,
+                  maxLines: 5,
+                  maxLength: 1000,
+                  maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                  controller: customControllerNote,
+                  decoration: InputDecoration(
+                    focusColor: Theme.of(context).accentColor
                   ),
                   style: TextStyle(
                     fontSize: 16,

@@ -154,16 +154,46 @@ class _QuestionTileState extends State<QuestionTile> {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        (widget.index + 1).toString()+'. ' + widget.question.text,
-        style: TextStyle(
-            fontSize: 16,
-            color: Theme.of(context).textTheme.headline6!.color),
-      ),
+    return InkWell(
       onTap: () {
         openBottomMenu();
       },
+      child: Column(
+        children: [
+          ListTile(
+            leading: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 2, 0, 0),
+              child: Text((widget.index + 1).toString(),
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).accentTextTheme.headline1!.color),
+              ),
+            ),
+            title: Text(
+               widget.question.text,
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Theme.of(context).textTheme.headline6!.color),
+            ),
+          ),
+          Visibility(
+            visible: widget.question.note.isNotEmpty,
+            child: ListTile(
+              leading: SizedBox(
+                height: 0.1,
+              ),
+              title: Text(
+               widget.question.note,
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(context).textTheme.headline6!.color!.withOpacity(0.7)),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
+
   }
 }

@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
               rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
               hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
               color:
-              Theme.of(context).textTheme.headline6!.color!.withOpacity(0.7),
+              Theme.of(context).textTheme.headline6!.color!.withOpacity(0.8),
               gap: 8,
               activeColor: Theme.of(context).accentColor,
               iconSize: 24,

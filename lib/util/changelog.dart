@@ -1,15 +1,19 @@
 class Changelog{
 
-  static String appVersion = "1.2.0";
+  static String appVersion = "1.3.0";
   static String appName = "Write Questions";
 
   static String changelogCurrent = '''  
-1.2.0
+1.3.0
+- Added Notes
 - UI Changes
-- GNav
 ''';
 
   static String changelogsOld = '''
+1.2.0
+- UI Changes
+- GNav
+
 1.1.5
 - UI Changes
 
