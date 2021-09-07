@@ -5,16 +5,16 @@ import 'package:write_questions/db/questionDao.dart';
 import 'package:write_questions/pages/newQuestion.dart';
 import 'package:write_questions/widgets/questionTile.dart';
 
-class ItemList extends StatefulWidget {
+class QuestionList extends StatefulWidget {
   @override
-  _ItemListState createState() => _ItemListState();
+  _QuestionListState createState() => _QuestionListState();
 
   int state;
 
-  ItemList({required Key key, required this.state}) : super(key: key);
+  QuestionList({required Key key, required this.state}) : super(key: key);
 }
 
-class _ItemListState extends State<ItemList> {
+class _QuestionListState extends State<QuestionList> {
   bool loading = true;
   final dbQuestion = QuestionDao.instance;
   List<Map<String, dynamic>> questionsList = [];

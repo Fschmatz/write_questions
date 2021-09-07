@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:write_questions/classes/question.dart';
 import 'package:write_questions/db/questionDao.dart';
 import 'package:write_questions/pages/editQuestion.dart';
+import 'package:linkwell/linkwell.dart';
 
 class QuestionTile extends StatefulWidget {
   @override
@@ -102,8 +103,8 @@ class _QuestionTileState extends State<QuestionTile> {
                           ),
                     title: Text(
                       widget.question.state == 1
-                          ? 'Mark question as not answered'
-                          : 'Mark question as answered',
+                          ? 'Mark as not answered'
+                          : 'Mark as answered',
                       style: TextStyle(fontSize: 16),
                     ),
                     onTap: () {
@@ -117,7 +118,7 @@ class _QuestionTileState extends State<QuestionTile> {
                     leading: Icon(Icons.edit_outlined,
                         color: Theme.of(context).hintColor),
                     title: Text(
-                      "Edit question",
+                      "Edit",
                       style: TextStyle(fontSize: 16),
                     ),
                     onTap: () {
@@ -138,7 +139,7 @@ class _QuestionTileState extends State<QuestionTile> {
                         color: Theme.of(context).hintColor),
                     //trailing: Icon(Icons.keyboard_arrow_right),
                     title: Text(
-                      "Delete question",
+                      "Delete",
                       style: TextStyle(fontSize: 16),
                     ),
                     onTap: () {
@@ -183,10 +184,11 @@ class _QuestionTileState extends State<QuestionTile> {
               leading: SizedBox(
                 height: 0.1,
               ),
-              title: Text(
+              title: LinkWell(
                widget.question.note,
+                linkStyle: TextStyle(color: Colors.blue,fontSize: 14.5, decoration: TextDecoration.underline,),
                 style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.5,
                     color: Theme.of(context).textTheme.headline6!.color!.withOpacity(0.7)),
               ),
             ),

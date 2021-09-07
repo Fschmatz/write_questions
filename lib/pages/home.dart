@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:write_questions/configs/settingsPage.dart';
 import 'package:write_questions/db/questionDao.dart';
-import 'package:write_questions/widgets/itemList.dart';
+import 'package:write_questions/widgets/questionList.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class Home extends StatefulWidget {
@@ -16,11 +16,11 @@ class _HomeState extends State<Home> {
 
   int _currentIndex = 0;
   List<Widget> _tabs = [
-    ItemList(
+    QuestionList(
       key: UniqueKey(),
       state: 0,
     ),
-    ItemList(
+    QuestionList(
       key: UniqueKey(),
       state: 1,
     ),
