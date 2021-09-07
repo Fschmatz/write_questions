@@ -66,11 +66,11 @@ ThemeData dark = ThemeData(
       backgroundColor:  Color(0xFF1E1E20),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedIconTheme: IconThemeData(color: Color(0xFFA590D5)),
-      selectedLabelStyle: TextStyle(color: Color(0xFFA590D5)),
+      selectedIconTheme: IconThemeData(color: Color(0xFF9DECD6)),
+      selectedLabelStyle: TextStyle(color: Color(0xFF9DECD6)),
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      backgroundColor: Color(0xFF141416),
+      backgroundColor: Color(0xFF151517),
     ),
     inputDecorationTheme: InputDecorationTheme(
         contentPadding: EdgeInsets.symmetric(
@@ -92,7 +92,7 @@ ThemeData dark = ThemeData(
             ),
             borderRadius: BorderRadius.circular(15.0))
     ),
-    bottomAppBarColor: Color(0xFF141416),
+    bottomAppBarColor: Color(0xFF151517),
     accentTextTheme: TextTheme(
       headline1: TextStyle(color: Color(0xFF9DECD6)),
       headline2: TextStyle(color: Color(0xFF000000))

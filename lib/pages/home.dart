@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8),
             child: GNav(
               rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
               hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               duration: Duration(milliseconds: 500),
               tabBackgroundColor:
-              Theme.of(context).accentColor.withOpacity(0.2),
+              Theme.of(context).accentColor.withOpacity(0.4),
               backgroundColor:
               Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
               tabs: [
