@@ -94,8 +94,8 @@ ThemeData dark = ThemeData(
     ),
     bottomAppBarColor: Color(0xFF141416),
     accentTextTheme: TextTheme(
-      headline1: TextStyle(color: Color(0xFF9DECD6)),//0xFF88dbc4
-      headline2: TextStyle(color: Color(0xFF000000)),
+      headline1: TextStyle(color: Color(0xFF9DECD6)),
+      headline2: TextStyle(color: Color(0xFF000000))
     )
 );
 

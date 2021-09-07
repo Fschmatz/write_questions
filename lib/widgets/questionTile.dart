@@ -14,7 +14,10 @@ class QuestionTile extends StatefulWidget {
   int index;
 
   QuestionTile(
-      {required Key key, required this.question,required this.index, required this.refresh})
+      {required Key key,
+      required this.question,
+      required this.index,
+      required this.refresh})
       : super(key: key);
 }
 
@@ -164,7 +167,8 @@ class _QuestionTileState extends State<QuestionTile> {
           ListTile(
             leading: Padding(
               padding: const EdgeInsets.fromLTRB(0, 2, 0, 0),
-              child: Text((widget.index + 1).toString(),
+              child: Text(
+                (widget.index + 1).toString(),
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -172,7 +176,7 @@ class _QuestionTileState extends State<QuestionTile> {
               ),
             ),
             title: Text(
-               widget.question.text,
+              widget.question.text,
               style: TextStyle(
                   fontSize: 16,
                   color: Theme.of(context).textTheme.headline6!.color),
@@ -185,17 +189,28 @@ class _QuestionTileState extends State<QuestionTile> {
                 height: 0.1,
               ),
               title: LinkWell(
-               widget.question.note,
-                linkStyle: TextStyle(color: Colors.blue,fontSize: 14.5, decoration: TextDecoration.underline,),
+                widget.question.note,
+                linkStyle: TextStyle(
+                  color: Theme.of(context)
+                      .accentTextTheme
+                      .headline1!
+                      .color!
+                      .withOpacity(0.8),
+                  fontSize: 14,
+                  decoration: TextDecoration.underline,
+                ),
                 style: TextStyle(
-                    fontSize: 14.5,
-                    color: Theme.of(context).textTheme.headline6!.color!.withOpacity(0.7)),
+                    fontSize: 14,
+                    color: Theme.of(context)
+                        .textTheme
+                        .headline6!
+                        .color!
+                        .withOpacity(0.7)),
               ),
             ),
           ),
         ],
       ),
     );
-
   }
 }
