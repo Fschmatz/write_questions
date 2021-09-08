@@ -179,6 +179,7 @@ class _QuestionTileState extends State<QuestionTile> {
               widget.question.text,
               style: TextStyle(
                   fontSize: 16,
+                  fontWeight: FontWeight.w500,
                   color: Theme.of(context).textTheme.headline6!.color),
             ),
           ),
@@ -188,6 +189,7 @@ class _QuestionTileState extends State<QuestionTile> {
               leading: SizedBox(
                 height: 0.1,
               ),
+              contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
               title: LinkWell(
                 widget.question.note,
                 linkStyle: TextStyle(
@@ -196,16 +198,16 @@ class _QuestionTileState extends State<QuestionTile> {
                       .headline1!
                       .color!
                       .withOpacity(0.8),
-                  fontSize: 14,
+                  fontSize: 14.5,
                   decoration: TextDecoration.underline,
                 ),
                 style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.5,
                     color: Theme.of(context)
                         .textTheme
                         .headline6!
                         .color!
-                        .withOpacity(0.7)),
+                        .withOpacity(0.8)),
               ),
             ),
           ),

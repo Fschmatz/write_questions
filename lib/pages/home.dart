@@ -9,8 +9,8 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
-  bool loading = true;
+class _HomeState extends State<Home>{
+
   final dbQuestion = QuestionDao.instance;
   List<Map<String, dynamic>> questionsList = [];
 
@@ -26,6 +26,7 @@ class _HomeState extends State<Home> {
     ),
     SettingsPage()
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class _HomeState extends State<Home> {
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 8),
             child: GNav(
               rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
               hoverColor: Theme.of(context).accentColor.withOpacity(0.4),

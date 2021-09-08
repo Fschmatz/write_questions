@@ -15,7 +15,6 @@ class QuestionList extends StatefulWidget {
 }
 
 class _QuestionListState extends State<QuestionList> {
-  bool loading = true;
   final dbQuestion = QuestionDao.instance;
   List<Map<String, dynamic>> questionsList = [];
 
@@ -30,10 +29,6 @@ class _QuestionListState extends State<QuestionList> {
     setState(() {
       questionsList = resp;
     });
-  }
-
-  void refreshHome() {
-    getAll();
   }
 
   @override
