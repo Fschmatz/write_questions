@@ -186,9 +186,9 @@ class _QuestionTileState extends State<QuestionTile> {
           Visibility(
             visible: widget.question.note.isNotEmpty,
             child: ListTile(
-              leading: SizedBox(
+             /* leading: SizedBox(
                 height: 0.1,
-              ),
+              ),*/
               contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
               title: LinkWell(
                 widget.question.note,
@@ -197,7 +197,7 @@ class _QuestionTileState extends State<QuestionTile> {
                       .accentTextTheme
                       .headline1!
                       .color!
-                      .withOpacity(0.8),
+                      .withOpacity(0.9),
                   fontSize: 14.5,
                   decoration: TextDecoration.underline,
                 ),
@@ -207,7 +207,7 @@ class _QuestionTileState extends State<QuestionTile> {
                         .textTheme
                         .headline6!
                         .color!
-                        .withOpacity(0.8)),
+                        .withOpacity(0.9)),
               ),
             ),
           ),

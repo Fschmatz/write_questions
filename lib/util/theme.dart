@@ -5,9 +5,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 ThemeData light = ThemeData(
   brightness: Brightness.light,
   primaryColor: Color(0xFFFFFFFF),
-  appBarTheme: AppBarTheme(
-    color: Color(0xFFFFFFFF),
-  ),
+  appBarTheme: const AppBarTheme(
+      color: Color(0xFFFFFFFF),
+      elevation: 0,
+      iconTheme: IconThemeData(
+          color: Color(0xFF000000)
+      ),
+      titleTextStyle: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+          color: Color(0xFF000000))),
   accentColor: Colors.teal,
   scaffoldBackgroundColor: Color(0xFFFFFFFF),
   cardTheme: CardTheme(
@@ -56,9 +63,13 @@ ThemeData light = ThemeData(
 //ESCURO
 ThemeData dark = ThemeData(
     brightness: Brightness.dark,
-    appBarTheme: AppBarTheme(
-      color: Color(0xFF202022),
-    ),
+    appBarTheme: const AppBarTheme(
+        color: Color(0xFF202022),
+        elevation: 0,
+        titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            color: Color(0xFFFFFFFF))),
     primaryColor: Color(0xFF202022),
     accentColor: Color(0xFF62A996),
     scaffoldBackgroundColor: Color(0xFF202022),

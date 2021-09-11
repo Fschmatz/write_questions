@@ -117,7 +117,6 @@ class _EditQuestionState extends State<EditQuestion> {
               ListTile(
                 leading: Icon(Icons.notes_outlined),
                 title: TextField(
-                  autofocus: true,
                   minLines: 1,
                   maxLines: 5,
                   maxLength: 200,
@@ -145,7 +144,6 @@ class _EditQuestionState extends State<EditQuestion> {
               ListTile(
                 leading: Icon(Icons.article_outlined),
                 title: TextField(
-                  autofocus: true,
                   minLines: 1,
                   maxLines: 5,
                   maxLength: 1000,

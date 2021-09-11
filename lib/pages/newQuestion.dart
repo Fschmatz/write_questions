@@ -143,7 +143,6 @@ class _NewQuestionState extends State<NewQuestion> {
               ListTile(
                 leading: Icon(Icons.article_outlined),
                 title: TextField(
-                  autofocus: true,
                   minLines: 1,
                   maxLines: 5,
                   maxLength: 1000,
