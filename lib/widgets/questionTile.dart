@@ -165,21 +165,19 @@ class _QuestionTileState extends State<QuestionTile> {
       child: Column(
         children: [
           ListTile(
-            leading: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 2, 0, 0),
-              child: Text(
-                (widget.index + 1).toString(),
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).accentTextTheme.headline1!.color),
-              ),
-            ),
+            contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 5),
+            /*trailing: Text(
+              (widget.index + 1).toString(),
+              style: TextStyle(
+                  fontSize: 14.5,
+                  fontWeight: FontWeight.w700,
+                  color: Theme.of(context).accentTextTheme.headline1!.color!.withOpacity(0.9)),
+            ),*/
             title: Text(
               widget.question.text,
               style: TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w700,
                   color: Theme.of(context).textTheme.headline6!.color),
             ),
           ),
@@ -189,7 +187,7 @@ class _QuestionTileState extends State<QuestionTile> {
              /* leading: SizedBox(
                 height: 0.1,
               ),*/
-              contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
+              contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 5),
               title: LinkWell(
                 widget.question.note,
                 linkStyle: TextStyle(
