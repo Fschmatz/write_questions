@@ -62,7 +62,6 @@ class _QuestionListState extends State<QuestionList> {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-          backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
           elevation: 1,
           onPressed: () {
             Navigator.push(

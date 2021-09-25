@@ -28,7 +28,7 @@ ThemeData light = ThemeData(
     selectedLabelStyle: TextStyle(color: Colors.deepPurple),
     showSelectedLabels: false,
     showUnselectedLabels: false,
-    backgroundColor: Color(0xFFE5E5E5),
+    backgroundColor: Color(0xFFE8E8E8),
   ),
   bottomSheetTheme: const BottomSheetThemeData(
     backgroundColor:  Color(0xFFFFFFFF),
@@ -53,6 +53,9 @@ ThemeData light = ThemeData(
           ),
           borderRadius: BorderRadius.circular(15.0))
   ),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
+    backgroundColor: Color(0xFFE8E8E8),
+  ),
   accentTextTheme: const TextTheme(
     headline1: TextStyle(color: Colors.teal),
     headline2: TextStyle(color: Color(0xFFF1F1F1)),
@@ -74,7 +77,7 @@ ThemeData dark = ThemeData(
     accentColor: const Color(0xFF56b097),
     scaffoldBackgroundColor: const Color(0xFF202022),
     cardTheme: const CardTheme(
-      color: Color(0xFF1A1A1C),
+      color: Color(0xFF29292B),
     ),
     dialogTheme: const DialogTheme(
       backgroundColor: Color(0xFF303032),
@@ -87,7 +90,7 @@ ThemeData dark = ThemeData(
       selectedLabelStyle: TextStyle(color: Color(0xFF8eedd3)),
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      backgroundColor: Color(0xFF29292C),
+      backgroundColor: Color(0xFF29292B),
     ),
     inputDecorationTheme: InputDecorationTheme(
         contentPadding: const EdgeInsets.symmetric(
@@ -109,7 +112,10 @@ ThemeData dark = ThemeData(
             ),
             borderRadius: BorderRadius.circular(15.0))
     ),
-    bottomAppBarColor: const Color(0xFF29292C),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: Color(0xFF323234),
+    ),
+    bottomAppBarColor: const Color(0xFF29292B),
     accentTextTheme: const TextTheme(
       headline1: TextStyle(color: Color(0xFF8eedd3)),
       headline2: TextStyle(color: Color(0xFF000000))
