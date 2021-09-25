@@ -5,14 +5,14 @@ import 'package:path_provider/path_provider.dart';
 
 class QuestionDao {
 
-  static final _databaseName = 'Questions.db';
-  static final _databaseVersion = 1;
+  static const _databaseName = 'Questions.db';
+  static const _databaseVersion = 1;
 
-  static final table = 'question';
-  static final columnId = 'id';
-  static final columnText = 'text';
-  static final columnState = 'state';
-  static final columnNote = 'note';
+  static const table = 'question';
+  static const columnId = 'id';
+  static const columnText = 'text';
+  static const columnState = 'state';
+  static const columnNote = 'note';
 
   static Database? _database;
   Future<Database> get database async =>

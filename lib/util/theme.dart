@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 //CLARO
 ThemeData light = ThemeData(
   brightness: Brightness.light,
-  primaryColor: Color(0xFFFFFFFF),
+  primaryColor: const Color(0xFFFFFFFF),
   appBarTheme: const AppBarTheme(
       color: Color(0xFFFFFFFF),
       elevation: 0,
@@ -16,48 +16,48 @@ ThemeData light = ThemeData(
           fontWeight: FontWeight.w600,
           color: Color(0xFF000000))),
   accentColor: Colors.teal,
-  scaffoldBackgroundColor: Color(0xFFFFFFFF),
-  cardTheme: CardTheme(
+  scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+  cardTheme: const CardTheme(
     color: Color(0xFFF8F8F8),
   ),
-  dialogTheme: DialogTheme(
+  dialogTheme: const DialogTheme(
     backgroundColor: Color(0xFFF9F9F9),
   ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     selectedIconTheme: IconThemeData(color: Colors.deepPurple),
     selectedLabelStyle: TextStyle(color: Colors.deepPurple),
     showSelectedLabels: false,
     showUnselectedLabels: false,
     backgroundColor: Color(0xFFE5E5E5),
   ),
-  bottomSheetTheme: BottomSheetThemeData(
+  bottomSheetTheme: const BottomSheetThemeData(
     backgroundColor:  Color(0xFFFFFFFF),
   ),
   inputDecorationTheme: InputDecorationTheme(
-      contentPadding: EdgeInsets.symmetric(
+      contentPadding: const EdgeInsets.symmetric(
           vertical: 15.0, horizontal: 10.0),
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Colors.teal,
         ),
         borderRadius: BorderRadius.circular(15.0),
       ),
       enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.grey,
           ),
           borderRadius: BorderRadius.circular(15.0)),
       border: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.grey,
           ),
           borderRadius: BorderRadius.circular(15.0))
   ),
-  accentTextTheme: TextTheme(
+  accentTextTheme: const TextTheme(
     headline1: TextStyle(color: Colors.teal),
     headline2: TextStyle(color: Color(0xFFF1F1F1)),
   ),
-  bottomAppBarColor: Color(0xFFE4E4E4),
+  bottomAppBarColor: const Color(0xFFE4E4E4),
 );
 
 //ESCURO
@@ -70,48 +70,48 @@ ThemeData dark = ThemeData(
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: Color(0xFFFFFFFF))),
-    primaryColor: Color(0xFF202022),
-    accentColor: Color(0xFF62A996),
-    scaffoldBackgroundColor: Color(0xFF202022),
-    cardTheme: CardTheme(
+    primaryColor: const Color(0xFF202022),
+    accentColor: const Color(0xFF56b097),
+    scaffoldBackgroundColor: const Color(0xFF202022),
+    cardTheme: const CardTheme(
       color: Color(0xFF1A1A1C),
     ),
-    dialogTheme: DialogTheme(
+    dialogTheme: const DialogTheme(
       backgroundColor: Color(0xFF303032),
     ),
-    bottomSheetTheme: BottomSheetThemeData(
+    bottomSheetTheme: const BottomSheetThemeData(
       backgroundColor:  Color(0xFF202022),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedIconTheme: IconThemeData(color: Color(0xFF9DECD6)),
-      selectedLabelStyle: TextStyle(color: Color(0xFF9DECD6)),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedIconTheme: IconThemeData(color: Color(0xFF8eedd3)),
+      selectedLabelStyle: TextStyle(color: Color(0xFF8eedd3)),
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      backgroundColor: Color(0xFF151517),
+      backgroundColor: Color(0xFF29292B),
     ),
     inputDecorationTheme: InputDecorationTheme(
-        contentPadding: EdgeInsets.symmetric(
+        contentPadding: const EdgeInsets.symmetric(
             vertical: 15.0, horizontal: 10.0),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Color(0xFF479C84),
           ),
           borderRadius: BorderRadius.circular(15.0),
         ),
         enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.grey,
             ),
             borderRadius: BorderRadius.circular(15.0)),
         border: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.grey,
             ),
             borderRadius: BorderRadius.circular(15.0))
     ),
-    bottomAppBarColor: Color(0xFF151517),
-    accentTextTheme: TextTheme(
-      headline1: TextStyle(color: Color(0xFF9DECD6)),
+    bottomAppBarColor: const Color(0xFF29292B),
+    accentTextTheme: const TextTheme(
+      headline1: TextStyle(color: Color(0xFF8eedd3)),
       headline2: TextStyle(color: Color(0xFF000000))
     )
 );

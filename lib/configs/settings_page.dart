@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:write_questions/util/changelog.dart';
 import 'package:write_questions/util/theme.dart';
-import 'appInfoPage.dart';
-import 'changelogPage.dart';
+import 'app_info_page.dart';
+import 'changelog_page.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -18,26 +18,29 @@ class _SettingsPageState extends State<SettingsPage> {
     Color? themeColorApp = Theme.of(context).accentTextTheme.headline1!.color;
 
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("Settings"),
+        ),
         body: ListView(
       children: <Widget>[
         Card(
           elevation: 1,
           margin: const EdgeInsets.fromLTRB(16, 20, 16, 25),
           color: Theme.of(context).accentColor,
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
           child: ListTile(
             title: Text(
               Changelog.appName + " " + Changelog.appVersion,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 17.5),
+              style: const TextStyle(fontSize: 17.5),
             ),
           ),
         ),
         const Divider(),
         ListTile(
-          leading: SizedBox(
+          leading: const SizedBox(
             height: 0.1,
           ),
           title: Text("About".toUpperCase(),
@@ -47,10 +50,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   color: themeColorApp)),
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.info_outline,
           ),
-          title: Text(
+          title: const Text(
             "App Info",
             style: TextStyle(fontSize: 16),
           ),
@@ -58,7 +61,7 @@ class _SettingsPageState extends State<SettingsPage> {
             Navigator.push(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) => AppInfoPage(),
+                  builder: (BuildContext context) => const AppInfoPage(),
                   fullscreenDialog: true,
                 ));
           },
@@ -67,10 +70,10 @@ class _SettingsPageState extends State<SettingsPage> {
           height: 10.0,
         ),
         ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.article_outlined,
           ),
-          title: Text(
+          title: const Text(
             "Changelog",
             style: TextStyle(fontSize: 16),
           ),
@@ -78,14 +81,14 @@ class _SettingsPageState extends State<SettingsPage> {
             Navigator.push(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) => ChangelogPage(),
+                  builder: (BuildContext context) => const ChangelogPage(),
                   fullscreenDialog: true,
                 ));
           },
         ),
         const Divider(),
         ListTile(
-          leading: SizedBox(
+          leading: const SizedBox(
             height: 0.1,
           ),
           title: Text("General".toUpperCase(),
@@ -96,11 +99,11 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         Consumer<ThemeNotifier>(
           builder: (context, notifier, child) => SwitchListTile(
-              title: Text(
+              title: const Text(
                 "Dark Theme",
                 style: TextStyle(fontSize: 16),
               ),
-              secondary: Icon(Icons.brightness_6_outlined),
+              secondary: const Icon(Icons.brightness_6_outlined),
               activeColor: Colors.blue,
               value: notifier.darkTheme,
               onChanged: (value) {

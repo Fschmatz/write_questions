@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:write_questions/configs/settingsPage.dart';
-import 'package:write_questions/db/questionDao.dart';
-import 'package:write_questions/widgets/questionList.dart';
+import 'package:write_questions/configs/settings_page.dart';
+import 'package:write_questions/db/question_dao.dart';
+import 'package:write_questions/widgets/question_list.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -15,7 +17,7 @@ class _HomeState extends State<Home>{
   List<Map<String, dynamic>> questionsList = [];
 
   int _currentIndex = 0;
-  List<Widget> _tabs = [
+  final List<Widget> _tabs = [
     QuestionList(
       key: UniqueKey(),
       state: 0,
@@ -23,8 +25,7 @@ class _HomeState extends State<Home>{
     QuestionList(
       key: UniqueKey(),
       state: 1,
-    ),
-    SettingsPage()
+    )
   ];
 
 
@@ -37,19 +38,37 @@ class _HomeState extends State<Home>{
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Write Questions',
         ),
+        actions: [IconButton(
+            icon: Icon(
+              Icons.settings_outlined,
+              color: Theme.of(context)
+                  .textTheme
+                  .headline6!
+                  .color!
+                  .withOpacity(0.8),
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => SettingsPage(),
+                    fullscreenDialog: true,
+                  ));
+            }),],
       ),
+
       body: _tabs[_currentIndex],
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 8),
             child: GNav(
               rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
               hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
@@ -57,8 +76,8 @@ class _HomeState extends State<Home>{
               Theme.of(context).textTheme.headline6!.color!.withOpacity(0.8),
               gap: 8,
               activeColor: Theme.of(context).accentColor,
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              duration: Duration(milliseconds: 500),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              duration: const Duration(milliseconds: 500),
               tabBackgroundColor:
               Theme.of(context).accentColor.withOpacity(0.4),
               backgroundColor:
@@ -72,11 +91,6 @@ class _HomeState extends State<Home>{
                 GButton(
                   icon: Icons.check_circle_outline_outlined,
                   text: 'Answered',
-                  textStyle: styleFontNavBar,
-                ),
-                GButton(
-                  icon: Icons.settings_outlined,
-                  text: 'Settings',
                   textStyle: styleFontNavBar,
                 ),
               ],

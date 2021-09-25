@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:write_questions/classes/question.dart';
-import 'package:write_questions/db/questionDao.dart';
-import 'package:write_questions/pages/newQuestion.dart';
-import 'package:write_questions/widgets/questionTile.dart';
+import 'package:write_questions/db/question_dao.dart';
+import 'package:write_questions/pages/new_question.dart';
+import 'package:write_questions/widgets/question_tile.dart';
 
 class QuestionList extends StatefulWidget {
   @override
@@ -34,11 +34,11 @@ class _QuestionListState extends State<QuestionList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(physics: AlwaysScrollableScrollPhysics(), children: [
+      body: ListView(physics: const AlwaysScrollableScrollPhysics(), children: [
         ListView.separated(
             separatorBuilder: (BuildContext context, int index) =>
                 const Divider(),
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: questionsList.length,
             itemBuilder: (context, index) {
@@ -59,16 +59,19 @@ class _QuestionListState extends State<QuestionList> {
       floatingActionButton: Visibility(
         visible: widget.state == 0,
         child: FloatingActionButton(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
           elevation: 0.0,
           onPressed: () {
             Navigator.push(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (BuildContext context) => NewQuestion(),
+                  builder: (BuildContext context) => const NewQuestion(),
                   fullscreenDialog: true,
                 )).then((value) => getAll());
           },
-          child: Icon(
+          child: const Icon(
             Icons.add,
             color: Colors.white,
           ),

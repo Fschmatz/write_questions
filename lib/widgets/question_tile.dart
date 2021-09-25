@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:write_questions/classes/question.dart';
-import 'package:write_questions/db/questionDao.dart';
-import 'package:write_questions/pages/editQuestion.dart';
+import 'package:write_questions/db/question_dao.dart';
+import 'package:write_questions/pages/edit_question.dart';
 import 'package:linkwell/linkwell.dart';
 
 class QuestionTile extends StatefulWidget {
@@ -50,11 +50,11 @@ class _QuestionTileState extends State<QuestionTile> {
 
     AlertDialog alert = AlertDialog(
       elevation: 3.0,
-      title: Text(
+      title: const Text(
         "Confirm", //
         style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
       ),
-      content: Text(
+      content: const Text(
         "\nDelete ?",
         style: TextStyle(
           fontSize: 18,
@@ -79,78 +79,74 @@ class _QuestionTileState extends State<QuestionTile> {
 
   void openBottomMenu() {
     showModalBottomSheet(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-              topLeft: const Radius.circular(25.0),
-              topRight: const Radius.circular(25.0)),
+              topLeft: Radius.circular(25.0), topRight: Radius.circular(25.0)),
         ),
         isScrollControlled: true,
         context: context,
         builder: (BuildContext bc) {
-          return Container(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-              child: Wrap(
-                children: <Widget>[
-                  ListTile(
-                    leading: widget.question.state == 0
-                        ? Icon(
-                            Icons.check_circle_outline_outlined,
-                            color: Theme.of(context).hintColor,
-                            size: 25,
-                          )
-                        : Icon(
-                            Icons.help_outline_outlined,
-                            color: Theme.of(context).hintColor,
-                            size: 25,
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            child: Wrap(
+              children: <Widget>[
+                ListTile(
+                  leading: widget.question.state == 0
+                      ? Icon(
+                          Icons.check_circle_outline_outlined,
+                          color: Theme.of(context).hintColor,
+                          size: 25,
+                        )
+                      : Icon(
+                          Icons.help_outline_outlined,
+                          color: Theme.of(context).hintColor,
+                          size: 25,
+                        ),
+                  title: Text(
+                    widget.question.state == 1
+                        ? 'Mark as not answered'
+                        : 'Mark as answered',
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  onTap: () {
+                    changeState();
+                    widget.refresh();
+                    Navigator.of(context).pop();
+                  },
+                ),
+                const Divider(),
+                ListTile(
+                  leading: Icon(Icons.edit_outlined,
+                      color: Theme.of(context).hintColor),
+                  title: const Text(
+                    "Edit",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) => EditQuestion(
+                            question: widget.question,
                           ),
-                    title: Text(
-                      widget.question.state == 1
-                          ? 'Mark as not answered'
-                          : 'Mark as answered',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    onTap: () {
-                      changeState();
-                      widget.refresh();
-                      Navigator.of(context).pop();
-                    },
+                          fullscreenDialog: true,
+                        )).then((value) => widget.refresh());
+                  },
+                ),
+                const Divider(),
+                ListTile(
+                  leading: Icon(Icons.delete_outline_outlined,
+                      color: Theme.of(context).hintColor),
+                  title: const Text(
+                    "Delete",
+                    style: TextStyle(fontSize: 16),
                   ),
-                  const Divider(),
-                  ListTile(
-                    leading: Icon(Icons.edit_outlined,
-                        color: Theme.of(context).hintColor),
-                    title: Text(
-                      "Edit",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) => EditQuestion(
-                              question: widget.question,
-                            ),
-                            fullscreenDialog: true,
-                          )).then((value) => widget.refresh());
-                    },
-                  ),
-                  const Divider(),
-                  ListTile(
-                    leading: Icon(Icons.delete_outline_outlined,
-                        color: Theme.of(context).hintColor),
-                    //trailing: Icon(Icons.keyboard_arrow_right),
-                    title: Text(
-                      "Delete",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    onTap: () {
-                      showAlertDialogOkDelete(context);
-                    },
-                  ),
-                ],
-              ),
+                  onTap: () {
+                    showAlertDialogOkDelete(context);
+                  },
+                ),
+              ],
             ),
           );
         });
@@ -166,13 +162,6 @@ class _QuestionTileState extends State<QuestionTile> {
         children: [
           ListTile(
             contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 5),
-            /*trailing: Text(
-              (widget.index + 1).toString(),
-              style: TextStyle(
-                  fontSize: 14.5,
-                  fontWeight: FontWeight.w700,
-                  color: Theme.of(context).accentTextTheme.headline1!.color!.withOpacity(0.9)),
-            ),*/
             title: Text(
               widget.question.text,
               style: TextStyle(
@@ -184,10 +173,7 @@ class _QuestionTileState extends State<QuestionTile> {
           Visibility(
             visible: widget.question.note.isNotEmpty,
             child: ListTile(
-             /* leading: SizedBox(
-                height: 0.1,
-              ),*/
-              contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 5),
+              contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
               title: LinkWell(
                 widget.question.note,
                 linkStyle: TextStyle(

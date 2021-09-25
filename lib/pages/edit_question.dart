@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:write_questions/classes/question.dart';
-import 'package:write_questions/db/questionDao.dart';
+import 'package:write_questions/db/question_dao.dart';
 
 class EditQuestion extends StatefulWidget {
   Question question;
@@ -44,7 +44,7 @@ class _EditQuestionState extends State<EditQuestion> {
 
   showAlertDialogErrors(BuildContext context) {
     Widget okButton = TextButton(
-      child: Text(
+      child: const Text(
         "Ok",
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
@@ -55,13 +55,13 @@ class _EditQuestionState extends State<EditQuestion> {
 
     AlertDialog alert = AlertDialog(
       elevation: 3.0,
-      title: Text(
+      title: const Text(
         "Error",
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
       content: Text(
         checkProblems(),
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 18,
         ),
       ),
@@ -82,13 +82,12 @@ class _EditQuestionState extends State<EditQuestion> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Edit Question"),
-          elevation: 0,
+          title: const Text("Edit Question"),
           actions: [
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
               child: IconButton(
-                icon: Icon(Icons.save_outlined),
+                icon: const Icon(Icons.save_outlined),
                 tooltip: 'Save',
                 onPressed: () {
                   if (checkProblems().isEmpty) {
@@ -105,7 +104,7 @@ class _EditQuestionState extends State<EditQuestion> {
         body: ListView(
             children: [
               ListTile(
-                leading: SizedBox(
+                leading: const SizedBox(
                   height: 0.1,
                 ),
                 title: Text("Question".toUpperCase(),
@@ -115,7 +114,7 @@ class _EditQuestionState extends State<EditQuestion> {
                         color: Theme.of(context).accentTextTheme.headline1!.color)),
               ),
               ListTile(
-                leading: Icon(Icons.notes_outlined),
+                leading: const Icon(Icons.notes_outlined),
                 title: TextField(
                   minLines: 1,
                   maxLines: 5,
@@ -126,13 +125,13 @@ class _EditQuestionState extends State<EditQuestion> {
                     focusColor: Theme.of(context).accentColor,
                     helperText: "* Required",
                   ),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                   ),
                 ),
               ),
               ListTile(
-                leading: SizedBox(
+                leading: const SizedBox(
                   height: 0.1,
                 ),
                 title: Text("Note".toUpperCase(),
@@ -142,7 +141,7 @@ class _EditQuestionState extends State<EditQuestion> {
                         color: Theme.of(context).accentTextTheme.headline1!.color)),
               ),
               ListTile(
-                leading: Icon(Icons.article_outlined),
+                leading: const Icon(Icons.article_outlined),
                 title: TextField(
                   minLines: 1,
                   maxLines: 5,
@@ -152,7 +151,7 @@ class _EditQuestionState extends State<EditQuestion> {
                   decoration: InputDecoration(
                       focusColor: Theme.of(context).accentColor
                   ),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                   ),
                 ),
