@@ -87,7 +87,7 @@ ThemeData dark = ThemeData(
       selectedLabelStyle: TextStyle(color: Color(0xFF8eedd3)),
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      backgroundColor: Color(0xFF29292B),
+      backgroundColor: Color(0xFF29292C),
     ),
     inputDecorationTheme: InputDecorationTheme(
         contentPadding: const EdgeInsets.symmetric(
@@ -109,7 +109,7 @@ ThemeData dark = ThemeData(
             ),
             borderRadius: BorderRadius.circular(15.0))
     ),
-    bottomAppBarColor: const Color(0xFF29292B),
+    bottomAppBarColor: const Color(0xFF29292C),
     accentTextTheme: const TextTheme(
       headline1: TextStyle(color: Color(0xFF8eedd3)),
       headline2: TextStyle(color: Color(0xFF000000))

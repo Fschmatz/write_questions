@@ -76,7 +76,7 @@ class _HomeState extends State<Home>{
               Theme.of(context).textTheme.headline6!.color!.withOpacity(0.8),
               gap: 8,
               activeColor: Theme.of(context).accentColor,
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               duration: const Duration(milliseconds: 500),
               tabBackgroundColor:
               Theme.of(context).accentColor.withOpacity(0.4),

@@ -62,7 +62,8 @@ class _QuestionListState extends State<QuestionList> {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-          elevation: 0.0,
+          backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+          elevation: 1,
           onPressed: () {
             Navigator.push(
                 context,
@@ -71,9 +72,9 @@ class _QuestionListState extends State<QuestionList> {
                   fullscreenDialog: true,
                 )).then((value) => getAll());
           },
-          child: const Icon(
+          child: Icon(
             Icons.add,
-            color: Colors.white,
+            color: Theme.of(context).accentColor!,
           ),
         ),
       ),
