@@ -62,7 +62,7 @@ class _QuestionListState extends State<QuestionList> {
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-          elevation: 1,
+          elevation: 0,
           onPressed: () {
             Navigator.push(
                 context,

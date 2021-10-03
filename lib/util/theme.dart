@@ -18,7 +18,7 @@ ThemeData light = ThemeData(
   accentColor: Colors.teal,
   scaffoldBackgroundColor: const Color(0xFFFFFFFF),
   cardTheme: const CardTheme(
-    color: Color(0xFFF8F8F8),
+    color: Color(0xFFEAEAEA),
   ),
   dialogTheme: const DialogTheme(
     backgroundColor: Color(0xFFF9F9F9),
@@ -28,7 +28,7 @@ ThemeData light = ThemeData(
     selectedLabelStyle: TextStyle(color: Colors.deepPurple),
     showSelectedLabels: false,
     showUnselectedLabels: false,
-    backgroundColor: Color(0xFFE8E8E8),
+    backgroundColor: Color(0xFFDBDBDB),
   ),
   bottomSheetTheme: const BottomSheetThemeData(
     backgroundColor:  Color(0xFFFFFFFF),
@@ -54,7 +54,7 @@ ThemeData light = ThemeData(
           borderRadius: BorderRadius.circular(15.0))
   ),
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
-    backgroundColor: Color(0xFFE8E8E8),
+    backgroundColor: Color(0xFFEAEAEA),
   ),
   accentTextTheme: const TextTheme(
     headline1: TextStyle(color: Colors.teal),
@@ -77,7 +77,7 @@ ThemeData dark = ThemeData(
     accentColor: const Color(0xFF56b097),
     scaffoldBackgroundColor: const Color(0xFF202022),
     cardTheme: const CardTheme(
-      color: Color(0xFF29292B),
+      color: Color(0xFF323234),
     ),
     dialogTheme: const DialogTheme(
       backgroundColor: Color(0xFF303032),
@@ -90,7 +90,7 @@ ThemeData dark = ThemeData(
       selectedLabelStyle: TextStyle(color: Color(0xFF8eedd3)),
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      backgroundColor: Color(0xFF29292B),
+      backgroundColor: Color(0xFF151517),
     ),
     inputDecorationTheme: InputDecorationTheme(
         contentPadding: const EdgeInsets.symmetric(

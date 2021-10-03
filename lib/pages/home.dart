@@ -37,7 +37,6 @@ class _HomeState extends State<Home>{
 
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
         title: const Text(
           'Write Questions',
         ),
@@ -68,7 +67,7 @@ class _HomeState extends State<Home>{
         ),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 55.0, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 55.0, vertical: 10),
             child: GNav(
               rippleColor: Theme.of(context).accentColor.withOpacity(0.4),
               hoverColor: Theme.of(context).accentColor.withOpacity(0.4),
@@ -79,7 +78,7 @@ class _HomeState extends State<Home>{
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               duration: const Duration(milliseconds: 500),
               tabBackgroundColor:
-              Theme.of(context).accentColor.withOpacity(0.4),
+              Theme.of(context).cardTheme.color!,
               backgroundColor:
               Theme.of(context).bottomNavigationBarTheme.backgroundColor!,
               tabs: [
