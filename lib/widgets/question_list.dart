@@ -72,7 +72,7 @@ class _QuestionListState extends State<QuestionList> {
           },
           child: Icon(
             Icons.add,
-            color: Theme.of(context).accentColor!,
+            color: Theme.of(context).accentColor,
           ),
         ),
       ),

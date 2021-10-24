@@ -18,7 +18,7 @@ ThemeData light = ThemeData(
   accentColor: Colors.teal,
   scaffoldBackgroundColor: const Color(0xFFFFFFFF),
   cardTheme: const CardTheme(
-    color: Color(0xFFEAEAEA),
+    color: Color(0xFFECECEC),
   ),
   dialogTheme: const DialogTheme(
     backgroundColor: Color(0xFFF9F9F9),
@@ -77,7 +77,7 @@ ThemeData dark = ThemeData(
     accentColor: const Color(0xFF56b097),
     scaffoldBackgroundColor: const Color(0xFF202022),
     cardTheme: const CardTheme(
-      color: Color(0xFF323234),
+      color: Color(0xFF303032),
     ),
     dialogTheme: const DialogTheme(
       backgroundColor: Color(0xFF303032),
@@ -113,7 +113,7 @@ ThemeData dark = ThemeData(
             borderRadius: BorderRadius.circular(15.0))
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Color(0xFF323234),
+      backgroundColor: Color(0xFF363638),
     ),
     bottomAppBarColor: const Color(0xFF29292B),
     accentTextTheme: const TextTheme(
