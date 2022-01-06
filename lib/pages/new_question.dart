@@ -113,6 +113,7 @@ class _NewQuestionState extends State<NewQuestion> {
               maxLines: 5,
               maxLength: 200,
               maxLengthEnforcement: MaxLengthEnforcement.enforced,
+              textCapitalization: TextCapitalization.sentences,
               controller: customControllerText,
               decoration: InputDecoration(
                 focusColor: Theme.of(context).accentColor,
@@ -141,6 +142,7 @@ class _NewQuestionState extends State<NewQuestion> {
               maxLength: 1000,
               maxLengthEnforcement: MaxLengthEnforcement.enforced,
               controller: customControllerNote,
+              textCapitalization: TextCapitalization.sentences,
               decoration:
                   InputDecoration(focusColor: Theme.of(context).accentColor),
               style: const TextStyle(

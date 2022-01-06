@@ -1,15 +1,19 @@
 class Changelog{
 
-  static String appVersion = "1.5.2";
+  static String appVersion = "1.6.0";
   static String appName = "Write Questions Fschmatz";
 
   static String changelogCurrent = '''  
-1.5.2
-- Lints
-- Small UI Changes
+1.6.0
+- Material 3 NavBar
+- Hide AppBar
 ''';
 
   static String changelogsOld = '''
+1.5.2
+- Lints
+- Small UI Changes
+
 1.4.0
 - Added Link Detection to Notes
 - Small Fixes

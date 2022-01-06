@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-//CLARO
+
 ThemeData light = ThemeData(
   brightness: Brightness.light,
+  primaryColorBrightness: Brightness.dark,
   primaryColor: const Color(0xFFFFFFFF),
   appBarTheme: const AppBarTheme(
       color: Color(0xFFFFFFFF),
       elevation: 0,
       iconTheme: IconThemeData(
-          color: Color(0xFF000000)
+          color: Color(0xFF050505)
       ),
       titleTextStyle: TextStyle(
           fontSize: 20,
@@ -28,7 +29,7 @@ ThemeData light = ThemeData(
     selectedLabelStyle: TextStyle(color: Colors.deepPurple),
     showSelectedLabels: false,
     showUnselectedLabels: false,
-    backgroundColor: Color(0xFFDBDBDB),
+    backgroundColor: Color(0xFFE0E3E3),
   ),
   bottomSheetTheme: const BottomSheetThemeData(
     backgroundColor:  Color(0xFFFFFFFF),
@@ -40,35 +41,45 @@ ThemeData light = ThemeData(
         borderSide: const BorderSide(
           color: Colors.teal,
         ),
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(12.0),
       ),
       enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.grey,
           ),
-          borderRadius: BorderRadius.circular(15.0)),
+          borderRadius: BorderRadius.circular(12.0)),
       border: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.grey,
           ),
-          borderRadius: BorderRadius.circular(15.0))
+          borderRadius: BorderRadius.circular(12.0))
   ),
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
-    backgroundColor: Color(0xFFEAEAEA),
+    backgroundColor: Colors.teal,
   ),
   accentTextTheme: const TextTheme(
     headline1: TextStyle(color: Colors.teal),
     headline2: TextStyle(color: Color(0xFFF1F1F1)),
   ),
-  bottomAppBarColor: const Color(0xFFE4E4E4),
+  navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: const Color(0xFFE0E3E3),
+      indicatorColor: Colors.teal,
+      iconTheme: MaterialStateProperty.all(const IconThemeData(
+        color: Color(0xFF050505),
+      )),
+      labelTextStyle: MaterialStateProperty.all(const TextStyle(
+          color: Color(0xFF050505), fontWeight: FontWeight.w500))),
+  bottomAppBarColor: const Color(0xFFE0E3E3),
 );
 
-//ESCURO
+
 ThemeData dark = ThemeData(
     brightness: Brightness.dark,
+    primaryColorBrightness: Brightness.light,
     appBarTheme: const AppBarTheme(
         color: Color(0xFF202022),
         elevation: 0,
+        iconTheme: IconThemeData(color: Color(0xFFF5F5F5)),
         titleTextStyle: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -99,22 +110,30 @@ ThemeData dark = ThemeData(
           borderSide: const BorderSide(
             color: Color(0xFF479C84),
           ),
-          borderRadius: BorderRadius.circular(15.0),
+          borderRadius: BorderRadius.circular(12.0),
         ),
         enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(
               color: Colors.grey,
             ),
-            borderRadius: BorderRadius.circular(15.0)),
+            borderRadius: BorderRadius.circular(12.0)),
         border: OutlineInputBorder(
             borderSide: const BorderSide(
               color: Colors.grey,
             ),
-            borderRadius: BorderRadius.circular(15.0))
+            borderRadius: BorderRadius.circular(12.0))
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Color(0xFF363638),
+      backgroundColor: Color(0xFF56b097),
     ),
+    navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: const Color(0xFF151617),
+        indicatorColor: const Color(0xFF56b097),
+        iconTheme: MaterialStateProperty.all(const IconThemeData(
+          color: Color(0xFFEAEAEA),
+        )),
+        labelTextStyle: MaterialStateProperty.all(const TextStyle(
+            color: Color(0xFFEAEAEA), fontWeight: FontWeight.w500))),
     bottomAppBarColor: const Color(0xFF29292B),
     accentTextTheme: const TextTheme(
       headline1: TextStyle(color: Color(0xFF8eedd3)),

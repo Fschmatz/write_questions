@@ -49,7 +49,9 @@ class _QuestionTileState extends State<QuestionTile> {
     );
 
     AlertDialog alert = AlertDialog(
-      elevation: 3.0,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
       title: const Text(
         "Confirm", //
         style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
@@ -92,14 +94,12 @@ class _QuestionTileState extends State<QuestionTile> {
               children: <Widget>[
                 ListTile(
                   leading: widget.question.state == 0
-                      ? Icon(
+                      ? const Icon(
                           Icons.check_circle_outline_outlined,
-                          color: Theme.of(context).hintColor,
                           size: 25,
                         )
-                      : Icon(
+                      : const Icon(
                           Icons.help_outline_outlined,
-                          color: Theme.of(context).hintColor,
                           size: 25,
                         ),
                   title: Text(
@@ -116,8 +116,7 @@ class _QuestionTileState extends State<QuestionTile> {
                 ),
                 const Divider(),
                 ListTile(
-                  leading: Icon(Icons.edit_outlined,
-                      color: Theme.of(context).hintColor),
+                  leading: const Icon(Icons.edit_outlined),
                   title: const Text(
                     "Edit",
                     style: TextStyle(fontSize: 16),
@@ -136,8 +135,7 @@ class _QuestionTileState extends State<QuestionTile> {
                 ),
                 const Divider(),
                 ListTile(
-                  leading: Icon(Icons.delete_outline_outlined,
-                      color: Theme.of(context).hintColor),
+                  leading: const Icon(Icons.delete_outline_outlined),
                   title: const Text(
                     "Delete",
                     style: TextStyle(fontSize: 16),
@@ -161,7 +159,7 @@ class _QuestionTileState extends State<QuestionTile> {
       child: Column(
         children: [
           ListTile(
-            contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 5),
+            contentPadding: EdgeInsets.fromLTRB(16, 5, 16, widget.question.note.isNotEmpty ? 0 : 8),
             title: Text(
               widget.question.text,
               style: TextStyle(
@@ -173,7 +171,7 @@ class _QuestionTileState extends State<QuestionTile> {
           Visibility(
             visible: widget.question.note.isNotEmpty,
             child: ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
+              contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
               title: LinkWell(
                 widget.question.note,
                 linkStyle: TextStyle(
@@ -181,12 +179,12 @@ class _QuestionTileState extends State<QuestionTile> {
                       .accentTextTheme
                       .headline1!
                       .color!
-                      .withOpacity(0.9),
-                  fontSize: 14.5,
+                      .withOpacity(0.8),
+                  fontSize: 15,
                   decoration: TextDecoration.underline,
                 ),
                 style: TextStyle(
-                    fontSize: 14.5,
+                    fontSize: 15,
                     color: Theme.of(context)
                         .textTheme
                         .headline6!

@@ -121,6 +121,7 @@ class _EditQuestionState extends State<EditQuestion> {
                   maxLength: 200,
                   maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   controller: customControllerText,
+                  textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(
                     focusColor: Theme.of(context).accentColor,
                     helperText: "* Required",
@@ -146,6 +147,7 @@ class _EditQuestionState extends State<EditQuestion> {
                   minLines: 1,
                   maxLines: 5,
                   maxLength: 1000,
+                  textCapitalization: TextCapitalization.sentences,
                   maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   controller: customControllerNote,
                   decoration: InputDecoration(
