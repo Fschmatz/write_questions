@@ -16,10 +16,11 @@ ThemeData light = ThemeData(
           fontSize: 20,
           fontWeight: FontWeight.w600,
           color: Color(0xFF000000))),
-  accentColor: Colors.teal,
+  accentColor: Colors.teal.shade400,
   scaffoldBackgroundColor: const Color(0xFFFFFFFF),
   cardTheme: const CardTheme(
-    color: Color(0xFFECECEC),
+    color: Color(0xFFF0F5F4),
+    elevation: 0
   ),
   dialogTheme: const DialogTheme(
     backgroundColor: Color(0xFFF9F9F9),
@@ -54,8 +55,8 @@ ThemeData light = ThemeData(
           ),
           borderRadius: BorderRadius.circular(12.0))
   ),
-  floatingActionButtonTheme: const FloatingActionButtonThemeData(
-    backgroundColor: Colors.teal,
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: Colors.teal.shade400,
   ),
   accentTextTheme: const TextTheme(
     headline1: TextStyle(color: Colors.teal),
@@ -63,7 +64,7 @@ ThemeData light = ThemeData(
   ),
   navigationBarTheme: NavigationBarThemeData(
       backgroundColor: const Color(0xFFE0E3E3),
-      indicatorColor: Colors.teal,
+      indicatorColor: Colors.teal.shade400,
       iconTheme: MaterialStateProperty.all(const IconThemeData(
         color: Color(0xFF050505),
       )),
@@ -88,7 +89,8 @@ ThemeData dark = ThemeData(
     accentColor: const Color(0xFF56b097),
     scaffoldBackgroundColor: const Color(0xFF202022),
     cardTheme: const CardTheme(
-      color: Color(0xFF303032),
+      color: Color(0xFF2A2D2F),
+      elevation: 0
     ),
     dialogTheme: const DialogTheme(
       backgroundColor: Color(0xFF303032),

@@ -64,7 +64,7 @@ class _QuestionListState extends State<QuestionList> {
         body: ListView(physics: const AlwaysScrollableScrollPhysics(), children: [
           ListView.separated(
               separatorBuilder: (BuildContext context, int index) =>
-                  const Divider(height: 0,),
+                  const SizedBox(height: 5,),
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: questionsList.length,

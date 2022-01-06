@@ -152,48 +152,56 @@ class _QuestionTileState extends State<QuestionTile> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        openBottomMenu();
-      },
-      child: Column(
-        children: [
-          ListTile(
-            contentPadding: EdgeInsets.fromLTRB(16, 5, 16, widget.question.note.isNotEmpty ? 0 : 8),
-            title: Text(
-              widget.question.text,
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: Theme.of(context).textTheme.headline6!.color),
-            ),
-          ),
-          Visibility(
-            visible: widget.question.note.isNotEmpty,
-            child: ListTile(
-              contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-              title: LinkWell(
-                widget.question.note,
-                linkStyle: TextStyle(
-                  color: Theme.of(context)
-                      .accentTextTheme
-                      .headline1!
-                      .color!
-                      .withOpacity(0.8),
-                  fontSize: 15,
-                  decoration: TextDecoration.underline,
-                ),
+    return Card(
+      margin: const EdgeInsets.fromLTRB(16, 4, 16,4),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+      child: InkWell(
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        onTap: () {
+          openBottomMenu();
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+              title: Text(
+                widget.question.text,
                 style: TextStyle(
-                    fontSize: 15,
-                    color: Theme.of(context)
-                        .textTheme
-                        .headline6!
-                        .color!
-                        .withOpacity(0.9)),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Theme.of(context).textTheme.headline6!.color),
               ),
             ),
-          ),
-        ],
+            Visibility(
+              visible: widget.question.note.isNotEmpty,
+              child: ListTile(
+                contentPadding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                title: LinkWell(
+                  widget.question.note+"\n",
+                  linkStyle: TextStyle(
+                    color: Theme.of(context)
+                        .accentTextTheme
+                        .headline1!
+                        .color!
+                        .withOpacity(0.8),
+                    fontSize: 15,
+                    decoration: TextDecoration.underline,
+                  ),
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: Theme.of(context)
+                          .textTheme
+                          .headline6!
+                          .color!
+                          .withOpacity(0.9)),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
