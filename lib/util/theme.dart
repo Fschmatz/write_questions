@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 ThemeData light = ThemeData(
   brightness: Brightness.light,
   primaryColorBrightness: Brightness.dark,
-  primaryColor: const Color(0xFFFFFFFF),
+  primaryColor: const Color(0xFFFDFFFF),
   appBarTheme: const AppBarTheme(
       color: Color(0xFFFFFFFF),
       elevation: 0,
@@ -17,9 +17,9 @@ ThemeData light = ThemeData(
           fontWeight: FontWeight.w600,
           color: Color(0xFF000000))),
   accentColor: Colors.teal.shade400,
-  scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+  scaffoldBackgroundColor: const Color(0xFFFDFFFF),
   cardTheme: const CardTheme(
-    color: Color(0xFFF0F5F4),
+    color: Color(0xFFF4F7F7),
     elevation: 0
   ),
   dialogTheme: const DialogTheme(
@@ -30,10 +30,10 @@ ThemeData light = ThemeData(
     selectedLabelStyle: TextStyle(color: Colors.deepPurple),
     showSelectedLabels: false,
     showUnselectedLabels: false,
-    backgroundColor: Color(0xFFE0E3E3),
+    backgroundColor: Color(0xFFFDFFFF),
   ),
   bottomSheetTheme: const BottomSheetThemeData(
-    backgroundColor:  Color(0xFFFFFFFF),
+    backgroundColor:  Color(0xFFFDFFFF),
   ),
   inputDecorationTheme: InputDecorationTheme(
       contentPadding: const EdgeInsets.symmetric(
@@ -63,14 +63,14 @@ ThemeData light = ThemeData(
     headline2: TextStyle(color: Color(0xFFF1F1F1)),
   ),
   navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: const Color(0xFFE0E3E3),
+      backgroundColor: const Color(0xFFFDFFFF),
       indicatorColor: Colors.teal.shade400,
       iconTheme: MaterialStateProperty.all(const IconThemeData(
         color: Color(0xFF050505),
       )),
       labelTextStyle: MaterialStateProperty.all(const TextStyle(
           color: Color(0xFF050505), fontWeight: FontWeight.w500))),
-  bottomAppBarColor: const Color(0xFFE0E3E3),
+  bottomAppBarColor: const Color(0xFFFDFFFF),
 );
 
 
@@ -78,16 +78,16 @@ ThemeData dark = ThemeData(
     brightness: Brightness.dark,
     primaryColorBrightness: Brightness.light,
     appBarTheme: const AppBarTheme(
-        color: Color(0xFF202022),
+        color: Color(0xFF1B1C1F),
         elevation: 0,
         iconTheme: IconThemeData(color: Color(0xFFF5F5F5)),
         titleTextStyle: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: Color(0xFFFFFFFF))),
-    primaryColor: const Color(0xFF202022),
-    accentColor: const Color(0xFF56b097),
-    scaffoldBackgroundColor: const Color(0xFF202022),
+    primaryColor: const Color(0xFF1B1C1F),
+    accentColor: const Color(0xFF6AB29E),
+    scaffoldBackgroundColor: const Color(0xFF1B1C1F),
     cardTheme: const CardTheme(
       color: Color(0xFF2A2D2F),
       elevation: 0
@@ -96,14 +96,14 @@ ThemeData dark = ThemeData(
       backgroundColor: Color(0xFF303032),
     ),
     bottomSheetTheme: const BottomSheetThemeData(
-      backgroundColor:  Color(0xFF202022),
+      backgroundColor:  Color(0xFF1B1C1F),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(color: Color(0xFF8eedd3)),
       selectedLabelStyle: TextStyle(color: Color(0xFF8eedd3)),
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      backgroundColor: Color(0xFF151517),
+      backgroundColor: Color(0xFF1B1C1F),
     ),
     inputDecorationTheme: InputDecorationTheme(
         contentPadding: const EdgeInsets.symmetric(
@@ -129,14 +129,14 @@ ThemeData dark = ThemeData(
       backgroundColor: Color(0xFF56b097),
     ),
     navigationBarTheme: NavigationBarThemeData(
-        backgroundColor: const Color(0xFF151617),
+        backgroundColor: const Color(0xFF1B1C1F),
         indicatorColor: const Color(0xFF56b097),
         iconTheme: MaterialStateProperty.all(const IconThemeData(
           color: Color(0xFFEAEAEA),
         )),
         labelTextStyle: MaterialStateProperty.all(const TextStyle(
             color: Color(0xFFEAEAEA), fontWeight: FontWeight.w500))),
-    bottomAppBarColor: const Color(0xFF29292B),
+    bottomAppBarColor: const Color(0xFF1B1C1F),
     accentTextTheme: const TextTheme(
       headline1: TextStyle(color: Color(0xFF8eedd3)),
       headline2: TextStyle(color: Color(0xFF000000))
